@@ -91,11 +91,18 @@ class Registration extends React.Component {
             username: this.state.username,
             password: this.state.password,
         };
-        
-        fetch('http://localhost:8080/hey', {
-            method: 'GET',
-            mode: 'no-cors',
+
+        let hostname = window.location.hostname;
+
+        fetch('http://' + hostname + ':8080/registration', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(registration_data),
         }).then(response => {
+            if(!response.ok) throw new Error(response.status);
+
             this.setState({
                 registation_status: {
                     received: true,
@@ -103,7 +110,7 @@ class Registration extends React.Component {
                 }
             });
         }).catch(error => {
-            console.log("something went wrong");
+            console.log("Something went wrong");
             this.setState({
                 registation_status: {
                     received: true,

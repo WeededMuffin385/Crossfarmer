@@ -77,15 +77,22 @@ class Authorization extends React.Component {
     }
 
     try_authorization = () => {
-        let user_data = {
+        let authorization_data = {
             mail: this.state.mail,
             password: this.state.password,
         };
 
-        fetch('http://localhost:8080/hey', {
-            method: 'GET',
-            mode: 'no-cors',
+        let hostname = window.location.hostname;
+
+        fetch('http://' + hostname + ':8080/authorization', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(authorization_data),
         }).then(response => {
+            if(!response.ok) throw new Error(response.status);
+
             this.setState({
                 authorization_status: {
                     received: true,
@@ -93,7 +100,7 @@ class Authorization extends React.Component {
                 }
             });
         }).catch(error => {
-            console.log("something went wrong");
+            console.log("Something went wrong");
             this.setState({
                 authorization_status: {
                     received: true,
