@@ -1,0 +1,56 @@
+.Entrance {
+    background-image: url('./FarmBackground.jpg');
+    background-size: cover;
+    background-position: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    min-width: 40%;
+
+    background-color: rgba(108, 220, 59, 0.737);
+    border-radius: 10%;
+
+    padding: 2%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-label {
+    padding-left: 2%;
+}
+
+.button-container button {
+    width: 47.5%;
+    max-height: 20vh;
+}
+
+.Result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Result button {
+    width: 80%;
+}
+
+p.Title {
+    text-align: center;
+
+    font-size: 200%;
+    font-weight: 1000;
+}
+
