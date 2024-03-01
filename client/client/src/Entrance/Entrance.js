@@ -6,10 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Registration from './Registration';
 import Authorization from './Authorization';
+import Recovery from './Recovery';
 
-const StateOfRequest = {
-    Success: 'Success',
-    Error: 'Error',
+const EntranceState = {
+    Authorization: 0,
+    Registration: 1,
+    Recovery: 2,
 }
 
 class Entrance extends React.Component {
@@ -17,12 +19,7 @@ class Entrance extends React.Component {
         super(props);
 
         this.state = {
-            registered: true,
-            authorized: false,
-
-            mail: '',
-            username: '',
-            password: '',
+            state: EntranceState.Authorization,
         }
     }
     
@@ -30,21 +27,38 @@ class Entrance extends React.Component {
         return(
             <div className='Entrance'>
                 <div className='Form'>
-                    {this.state.registered ? <Authorization move_to_registration={this.move_to_registration}/> : <Registration move_to_authorization={this.move_to_authorization}/>}
+                    {this.render_state()}
                 </div>
             </div>
         );
     }
 
+    render_state = () => {
+        switch (this.state.state) {
+            case EntranceState.Authorization:
+                return (<Authorization move_to_registration={this.move_to_registration} move_to_recovery={this.move_to_recovery}/>);
+            case EntranceState.Registration:
+                return (<Registration move_to_authorization={this.move_to_authorization}/>);
+            case EntranceState.Recovery:
+                return (<Recovery move_to_authorization={this.move_to_authorization}/>);
+        }
+    }
+
     move_to_registration = () => {
         this.setState({
-            registered: false,
+            state: EntranceState.Registration
         });
     }
 
     move_to_authorization = () => {
         this.setState({
-            registered: true,
+            state: EntranceState.Authorization
+        });
+    }
+
+    move_to_recovery = () => {
+        this.setState({
+            state: EntranceState.Recovery
         });
     }
 }

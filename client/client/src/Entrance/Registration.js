@@ -11,9 +11,10 @@ class Registration extends React.Component {
             password: '',
 
 
-            registation_status: {
+            status: {
                 received: false,
                 result: false,
+                error: '',
             },
         }
     }
@@ -21,7 +22,7 @@ class Registration extends React.Component {
     render = () => {
         return(
             <div>
-                {this.state.registation_status.received ? <this.render_registration_status/> : <this.render_form/>}
+                {this.state.status.received ? <this.render_status/> : <this.render_form/>}
             </div>
         );
     }
@@ -62,23 +63,23 @@ class Registration extends React.Component {
         );
     }
 
-    render_registration_status = () => {
+    render_status = () => {
         return(
             <div>
                 <p className='Title'>
-                    {this.state.registation_status.result ? 'Registration succeed' : 'Registration failed'}
+                    {this.state.status.result ? 'Registration succeed' : 'Registration failed: ' + this.state.status.error}
                 </p>
 
                 <div className='Result'>
-                    <Button variant="warning" type="submit" onClick={this.close_registration_status}>Ok</Button>
+                    <Button variant="warning" type="submit" onClick={this.close_status}>Ok</Button>
                 </div>
             </div>
         );
     }
 
-    close_registration_status = () => {
+    close_status = () => {
         this.setState({
-            registation_status: {
+            status: {
                 received: false,
                 result: false,
             }
@@ -91,7 +92,7 @@ class Registration extends React.Component {
             username: this.state.username,
             password: this.state.password,
         };
-
+        
         let hostname = window.location.hostname;
 
         fetch('http://' + hostname + ':8080/registration', {
@@ -100,21 +101,31 @@ class Registration extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(registration_data),
-        }).then(response => {
-            if(!response.ok) throw new Error(response.status);
-
-            this.setState({
-                registation_status: {
-                    received: true,
-                    result: true,
-                }
-            });
+        }).then((response) => {
+            if (response.ok) {
+                this.setState({
+                    status: {
+                        received: true,
+                        result: true,
+                    }
+                })
+            } else {
+                response.json().then((data)=>{
+                    this.setState({
+                        status: {
+                            received: true,
+                            result: false,
+                            error: data.error,
+                        }
+                    })
+                })
+            }
         }).catch(error => {
-            console.log("Something went wrong");
             this.setState({
-                registation_status: {
+                status: {
                     received: true,
                     result: false,
+                    error: "Connection lost.",
                 }
             })
         });

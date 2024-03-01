@@ -28,14 +28,18 @@
     justify-content: space-between;
 }
 
+.button-container button {
+    width: 47.5%;
+}
+
 .form-label {
     padding-left: 2%;
 }
 
-.button-container button {
-    width: 47.5%;
-    max-height: 20vh;
+button {
+    width: 100%;
 }
+
 
 .Result {
     display: flex;
