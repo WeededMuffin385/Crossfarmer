@@ -17,7 +17,7 @@ class Authorization extends React.Component {
         }
     }
 
-    render() {
+    render = () => {
         return(
             <div>
                 {this.state.status.received ? <this.render_status/> : <this.render_form/>}
@@ -96,12 +96,9 @@ class Authorization extends React.Component {
             body: JSON.stringify(authorization_data),
         }).then((response) => {
             if (response.ok) {
-                this.setState({
-                    status: {
-                        received: true,
-                        result: true,
-                    }
-                })
+                response.json().then((data) => {
+                    this.props.move_to_game(data.token);
+                });
             } else {
                 response.json().then((data)=>{
                     this.setState({

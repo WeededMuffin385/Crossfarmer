@@ -17,13 +17,13 @@ const EntranceState = {
 class Entrance extends React.Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
             state: EntranceState.Authorization,
         }
     }
     
-    render() {
+    render = () => {
         return(
             <div className='Entrance'>
                 <div className='Form'>
@@ -36,7 +36,7 @@ class Entrance extends React.Component {
     render_state = () => {
         switch (this.state.state) {
             case EntranceState.Authorization:
-                return (<Authorization move_to_registration={this.move_to_registration} move_to_recovery={this.move_to_recovery}/>);
+                return (<Authorization move_to_registration={this.move_to_registration} move_to_recovery={this.move_to_recovery} move_to_game={this.props.move_to_game}/>);
             case EntranceState.Registration:
                 return (<Registration move_to_authorization={this.move_to_authorization}/>);
             case EntranceState.Recovery:

@@ -14,7 +14,7 @@ class Recovery extends React.Component {
         }
     }
 
-    render() {
+    render = () => {
         return(
             <div>
                 {this.state.status.received ? <this.render_status/> : <this.render_form/>}

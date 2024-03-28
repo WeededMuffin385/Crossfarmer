@@ -1,53 +1,47 @@
 import React from 'react'
-import logo from './logo.svg';
-import './App.css';
+import Game from "../Game/Game";
 import Entrance from "../Entrance/Entrance";
+import './App.css';
+
+const AppState = {
+    Entrance: 0,
+    Game: 1,
+}
+
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            default: true,
+            state: AppState.Entrance,
         };
     }
 
-    handle_click() {
-        console.log("pressed button");
-        console.log("showed is " + this.state.counter);
+    render = () => {
+        return this.render_state();
+    }
 
+    render_state = () => {
+        switch (this.state.state) {
+            case AppState.Entrance:
+                return (<Entrance move_to_game={this.move_to_game} />);
+            case AppState.Game:
+                return (<Game/>)
+        }
+    }
+
+    move_to_entrance = () => {
         this.setState({
-            counter: this.state.counter + 1,
+            state: AppState.Entrance,
         });
     }
 
-    //handle_authorization() {
-    //    console.log("auth handled");
-    //}
-
-    render() {
-        return <Entrance/>; //<Entrance onAuthorization = {this.handle_authorization}/>;
-    }
-
-    default() {
-        return (
-            <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit {this.state.counter}<code> abc src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >
-                Learn React
-                </a>
-            </header>
-            </div>
-        );
+    move_to_game = (received_token) => {
+        this.setState({
+            state: AppState.Game,
+            token: received_token,
+        });
     }
 }
 
