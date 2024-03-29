@@ -3,6 +3,7 @@ use r2d2_sqlite::SqliteConnectionManager;
 pub mod accounts;
 pub mod sessions;
 pub mod guilds;
+mod creatures;
 
 pub type Pool = r2d2::Pool<SqliteConnectionManager>;
 
@@ -12,6 +13,8 @@ pub const CURRENCY_TABLE: &str = "currency";
 pub const AUCTION_TABLE: &str = "auction";
 pub const GUILDS_TABLE: &str = "guilds";
 pub const GUILDS_MEMBERS_TABLE: &str = "guilds_members";
+pub const CREATURES_TABLE: &str = "creatures";
+pub const CREATURES_DAMAGE_TABLE: &str = "creatures_damage";
 
 pub fn create() -> Pool {
     let manager = SqliteConnectionManager::file("database.db");
@@ -25,4 +28,5 @@ fn create_tables(pool: &Pool) {
     accounts::create_table(&conn);
     guilds::create_table(&conn);
     sessions::create_table(&conn);
+    creatures::create_table(&conn);
 }

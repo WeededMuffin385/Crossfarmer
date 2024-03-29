@@ -12,7 +12,8 @@ struct Account {
 pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
     let statement = format!("
         CREATE TABLE IF NOT EXISTS {ACCOUNTS_TABLE}(
-            mail TEXT PRIMARY KEY,
+            id TEXT PRIMARY KEY,
+            mail TEXT UNIQUE NOT NULL,
             username TEXT,
             password TEXT
         )

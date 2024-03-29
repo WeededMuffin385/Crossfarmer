@@ -4,7 +4,7 @@ use actix_web::{HttpResponse, post, Responder, web};
 use messages::*;
 use crate::database::*;
 
-#[post("/entrance/authorization")]
+#[post("/authorization")]
 async fn authorization(authorization_data: web::Json<AuthorizationRequest>, pool: web::Data<Pool>) -> impl Responder {
 	let AuthorizationRequest {mail, password} = authorization_data.into_inner();
 
@@ -27,7 +27,7 @@ async fn authorization(authorization_data: web::Json<AuthorizationRequest>, pool
 	}
 }
 
-#[post("/entrance/registration")]
+#[post("/registration")]
 async fn registration(registration_data: web::Json<RegistrationRequest>, pool: web::Data<Pool>) -> impl Responder {
 	let RegistrationRequest { mail, username, password } = registration_data.into_inner();
 
@@ -41,7 +41,7 @@ async fn registration(registration_data: web::Json<RegistrationRequest>, pool: w
 	}
 }
 
-#[post("/entrance/recovery")]
+#[post("/recovery")]
 async fn recovery(recovery_data: web::Json<RecoveryRequest>, pool: web::Data<Pool>) -> impl Responder {
 	let RecoveryRequest{mail} = recovery_data.into_inner();
 

@@ -6,12 +6,6 @@ use uuid::Uuid;
 
 use crate::database::*;
 
-struct Session {
-    token: Uuid,
-    mail: String,
-    date: u64,
-}
-
 pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
     let statement = format!("
         CREATE TABLE IF NOT EXISTS {SESSIONS_TABLE}(
@@ -40,7 +34,6 @@ pub fn create(pool: &Pool, mail: &str) -> Uuid {
     let statement = format!("
         INSERT INTO {SESSIONS_TABLE} (token, mail, date) VALUES (:token, :mail, :date)
     ");
-
 
     conn.execute(statement.as_str(), named_params!{":token": token.to_string(), ":mail": mail, ":date": date}).unwrap();
     token

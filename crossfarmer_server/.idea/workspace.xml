@@ -8,24 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e89bece-9b23-406e-967b-d08c1e6e13c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/gameplay/location.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/.idea/server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/Cargo.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/database/accounts.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/database/guilds.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/database/mod.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/database/sessions.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/entrance/messages.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/entrance/mod.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/gameplay/creature.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/gameplay/mod.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/application/mod.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server/src/main.rs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/messages.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/creatures.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/entrance/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/entrance/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/gameplay/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/gameplay/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/accounts.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/accounts.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/guilds.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/guilds.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/sessions.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sessions.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +66,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mi\Documents\GitHub\Crossfarmer\crossfarmer_server\src\api\gameplay\creature" />
       <recent name="C:\Users\Mi\Documents\GitHub\Crossfarmer\crossfarmer_server\src" />
       <recent name="C:\Users\Mi\Documents\GitHub\Crossfarmer\crossfarmer_server\src\application\api" />
     </key>
@@ -110,7 +104,7 @@
       <workItem from="1711636554168" duration="56000" />
       <workItem from="1711636622592" duration="656000" />
       <workItem from="1711691627015" duration="542000" />
-      <workItem from="1711699808778" duration="449000" />
+      <workItem from="1711699808778" duration="3571000" />
     </task>
     <servers />
   </component>
