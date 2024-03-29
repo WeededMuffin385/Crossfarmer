@@ -1,7 +1,7 @@
 use r2d2::PooledConnection;
 use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::named_params;
-use crate::application::database::*;
+use crate::database::*;
 
 struct Account {
     mail: String,

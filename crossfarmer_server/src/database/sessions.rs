@@ -4,7 +4,7 @@ use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::named_params;
 use uuid::Uuid;
 
-use crate::application::database::*;
+use crate::database::*;
 
 struct Session {
     token: Uuid,

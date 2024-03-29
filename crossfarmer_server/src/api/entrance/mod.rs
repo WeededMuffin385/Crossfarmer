@@ -2,7 +2,7 @@ mod messages;
 
 use actix_web::{HttpResponse, post, Responder, web};
 use messages::*;
-use crate::application::database::*;
+use crate::database::*;
 
 #[post("/entrance/authorization")]
 async fn authorization(authorization_data: web::Json<AuthorizationRequest>, pool: web::Data<Pool>) -> impl Responder {
@@ -55,8 +55,10 @@ async fn recovery(recovery_data: web::Json<RecoveryRequest>, pool: web::Data<Poo
 }
 
 pub fn config(cfg: &mut web::ServiceConfig) {
-	cfg
-		.service(authorization)
-		.service(registration)
-		.service(recovery);
+	cfg.service(
+		web::scope("/api/entrance")
+			.service(authorization)
+			.service(registration)
+			.service(recovery)
+	);
 }
