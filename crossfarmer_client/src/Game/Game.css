@@ -10,3 +10,13 @@
     width: 100vw;
     height: 100vh;
 }
+
+.Game .Content {
+    width: 95vw;
+    height: 85vh;
+
+    border-radius: 15px;
+    margin: auto;
+
+    background-color: aquamarine;
+}

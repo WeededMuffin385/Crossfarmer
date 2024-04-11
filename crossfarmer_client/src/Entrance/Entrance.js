@@ -1,8 +1,6 @@
 import React from 'react'
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 import "./Entrance.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Registration from './Registration';
 import Authorization from './Authorization';

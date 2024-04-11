@@ -1,5 +1,4 @@
 import React from 'react'
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 class Registration extends React.Component {
     constructor(props) {
@@ -30,34 +29,31 @@ class Registration extends React.Component {
     render_form = () => {
         return(
             <div>
-                <p className='Title'>
+                <h1>
                     Registration
-                </p>
+                </h1>
 
-                <Form.Group>
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control value={this.state.mail} onChange={e => this.setState({mail: e.target.value})} type="email" size="lg" placeholder="Email"/>
-                </Form.Group>
+
+                <label for='mail'>Email address</label>
+                <input id='mail' type='text' />
+
+                <br/>
             
+                <label for='username'>Username</label>
+                <input id='username' type='text' />
+                
                 <br/>
 
-                <Form.Group>
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control value={this.state.username} onChange={e => this.setState({username: e.target.value})} type="username" size="lg" placeholder="Username"/>
-                </Form.Group>
+                <label for='password'>Password</label>
+                <input id='password' type='password' />
 
                 <br/>
 
-                <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control value={this.state.password} onChange={e => this.setState({password: e.target.value})} type="password" size="lg" placeholder="Password"/>
-                </Form.Group>
-
-                <br/>
+                
 
                 <div className='button-container'>
-                    <Button variant="primary" type="submit" onClick={this.try_registration}>Sign up</Button>
-                    <Button variant="warning" type="submit" onClick={this.props.move_to_authorization}>Already have an account</Button>
+                    <button className='green' onClick={this.try_registration}>Sign up</button>
+                    <button className='orange' onClick={this.props.move_to_authorization}>Already have an account</button>
                 </div>
             </div>
         );
@@ -71,7 +67,7 @@ class Registration extends React.Component {
                 </p>
 
                 <div className='Result'>
-                    <Button variant="warning" type="submit" onClick={this.close_status}>Ok</Button>
+                    <button variant="warning" type="submit" onClick={this.close_status}>Ok</button>
                 </div>
             </div>
         );
@@ -95,7 +91,7 @@ class Registration extends React.Component {
         
         let hostname = window.location.hostname;
 
-        fetch('http://' + hostname + ':8080/registration', {
+        fetch('http://' + hostname + ':8080/api/entrance/registration', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

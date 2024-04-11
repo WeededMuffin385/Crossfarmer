@@ -12,63 +12,69 @@
     margin-bottom: 2.5vh;
     display: flex;
 
-    z-index: 1;
+    z-index: 10;
 }
 
-.Interface .Top .Object {
+.Interface .Top > * {
     margin-left: 2.5vw;
     margin-right: 2.5vw;
     border-radius: 15px;
-
-
+    
+    
     width: 20vw;
     height: 100%;
-    background-color: yellow;
 
+    z-index: inherit;
+}
+
+.Interface .Top .Indicator {
+    background-color: yellow;
     z-index: 2;
 }
 
-.Interface .Top .Button:hover {
-    background-color: darkgoldenrod;
-}
-
-
-.Interface .Top .Object img {
+.Interface .Top .Indicator img {
     float: right;
     width: auto;
     max-height: 100%;
 }
 
-.Collapse {
-    position: fixed;
-    right: 0;
-    top: 0;
-    margin-right: 2.5vw;
-    margin-top: 5vh;
+
+
+
+
+.Interface button {
+    font-size: 150%;
+    background-color: hsl(60, 100%, 50%);
+}
+
+.Interface button:hover {
+    background-color: hsl(60, 100%, 70%);
+}
+
+.Interface button:active {
+    background-color: hsl(60, 100%, 30%);
+}
+
+
+
+
+
+.Interface .Menu {
+    position: absolute;
+    right: 2.5vw;
     width: 20vw;
 
+    top: 2.5vh;
+    height: 85vh;
 
+    padding-top: 10vh;
     border-radius: 15px;
-    background-color: cornflowerblue;
-    z-index: 0;
-}
 
-.Collapse .Button {
-    margin-top: 5vh;
-    height: 7.5vh;
+    background-color: blueviolet;
 
-    border-radius: 15px;
-    background-color: yellow;
-}
+    z-index: 5;
 
-.Collapse .Button:hover {
-    background-color: darkgoldenrod;
-}
-
-.Collapse .Button:first-child {
-    margin-top: 10vh;
-}
-
-.Collapse .Button:last-child {
-    margin-bottom: 100vh;
+    > * {
+        margin-bottom: 2.5vh;
+    }
 }

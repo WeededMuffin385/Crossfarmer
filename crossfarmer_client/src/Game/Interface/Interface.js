@@ -1,12 +1,8 @@
 import React from 'react'
 
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Collapse from 'react-bootstrap/Collapse';
-
 
 import './Interface.css';
-
 
 import gem from './gemRed.png';
 import coin from './coin.png';
@@ -25,39 +21,38 @@ class Interface extends React.Component {
         return(
             <div className='Interface'>
                 <div className='Top'>
-                    <div className='Object'>
+                    <div className='Indicator'>
                         <img src={coin} title="Ваш комментарий при наведении"/>
                     </div>
-                    <div className='Object'>
+                    <div className='Indicator'>
                         <img src={gem} title="Ваш комментарий при наведении"/>
                     </div>
-                    <div className='Object'>
+                    <div className='Indicator'>
                         <img src={experience} title="Ваш комментарий при наведении"/>
                     </div>
 
-                    <div className='Object Button' onClick={() => this.setState({open: !this.state.open})}>
+                    <button onClick={this.change_menu_visibility}>
                         Menu
-                    </div>
+                    </button>
                 </div>
 
-                <Collapse in={this.state.open}>
-                    <div className='Collapse' id="example-collapse-text">
-                        <div className='Button'>
-                            Garden
-                        </div>
-                        <div className='Button'>
-                            Inventory
-                        </div>
-                        <div className='Button'>
-                            Auction
-                        </div>
-                        <div className='Button'>
-                            Quests
-                        </div>
-                    </div>
-                </Collapse>
+                <div className='Menu' id='menu'>
+                    <button onClick={()=>{this.props.change_state(this.props.GameState.News)}}>News</button>
+                    <button onClick={()=>{this.props.change_state(this.props.GameState.Creatures)}}>Creatures</button>
+                    <button onClick={()=>{this.props.change_state(this.props.GameState.Inventory)}}>Inventory</button>
+                    <button onClick={()=>{this.props.change_state(this.props.GameState.Auction)}}>Auction</button>
+                    <button onClick={()=>{this.props.change_state(this.props.GameState.Quests)}}>Quests</button>
+                </div>
             </div>
         );
+    }
+
+    change_menu_visibility = () => {
+        if (document.getElementById('menu').style.display === 'none') {
+            document.getElementById('menu').style.display = 'block';
+        } else {
+            document.getElementById('menu').style.display = 'none';
+        }
     }
 }
 

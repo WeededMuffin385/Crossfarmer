@@ -8,17 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e89bece-9b23-406e-967b-d08c1e6e13c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/messages.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/mod.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/creatures.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Authorization.js" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Authorization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Entrance.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Entrance.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Entrance.js" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Entrance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Recovery.js" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Recovery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Entrance/Registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Garden/Garden.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Garden/Garden.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Interface/Interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client/src/Game/Interface/Interface.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/entrance/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/entrance/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/gameplay/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/gameplay/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/gameplay/creatures/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/accounts.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/accounts.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/guilds.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/guilds.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/sessions.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sessions.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +110,13 @@
       <workItem from="1711636622592" duration="656000" />
       <workItem from="1711691627015" duration="542000" />
       <workItem from="1711699808778" duration="3571000" />
+      <workItem from="1711706174745" duration="2268000" />
+      <workItem from="1712000334394" duration="1941000" />
+      <workItem from="1712043996270" duration="607000" />
+      <workItem from="1712643468387" duration="1278000" />
+      <workItem from="1712729836399" duration="245000" />
+      <workItem from="1712730114321" duration="617000" />
+      <workItem from="1712833973092" duration="645000" />
     </task>
     <servers />
   </component>

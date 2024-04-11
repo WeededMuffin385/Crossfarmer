@@ -1,5 +1,4 @@
 import React from 'react'
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 class Recovery extends React.Component {
     constructor(props) {
@@ -25,20 +24,18 @@ class Recovery extends React.Component {
     render_form = () => {
         return(
             <div>
-                <p className='Title'>
+                <h1>
                     Recovery
-                </p>
+                </h1>
 
-                <Form.Group>
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control value={this.state.mail} onChange={e => this.setState({mail: e.target.value})} type="email" size="lg" placeholder="Email"/>
-                </Form.Group>
+                <label for='mail'>Email address</label>
+                <input id='mail' type='text' />
 
                 <br/>
 
                 <div className='button-container'>
-                    <Button variant="primary" type="submit" onClick={this.try_recovery}>Recover password</Button>
-                    <Button variant="warning" type="submit" onClick={this.props.move_to_authorization}>Already have an account</Button>
+                    <button className='orange' onClick={this.try_recovery}>Recover password</button>
+                    <button className='green' type="submit" onClick={this.props.move_to_authorization}>Already know password</button>
                 </div>
             </div>
         );
@@ -52,7 +49,7 @@ class Recovery extends React.Component {
                 </p>
 
                 <div className='Result'>
-                    <Button variant="warning" type="submit" onClick={this.close_status}>Ok</Button>
+                    <button onClick={this.close_status}>Ok</button>
                 </div>
             </div>
         );
@@ -74,7 +71,7 @@ class Recovery extends React.Component {
             mail: this.state.mail,
         };
 
-        fetch('http://' + hostname + ':8080/recovery', {
+        fetch('http://' + hostname + ':8080/api/entrance/recovery', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(recovery_data),

@@ -3,12 +3,6 @@ use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::named_params;
 use crate::database::*;
 
-struct Account {
-    mail: String,
-    username: String,
-    password: String,
-}
-
 pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
     let statement = format!("
         CREATE TABLE IF NOT EXISTS {ACCOUNTS_TABLE}(

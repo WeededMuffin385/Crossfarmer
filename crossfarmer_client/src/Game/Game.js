@@ -1,12 +1,11 @@
 import React from 'react'
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import './Game.css';
 import Interface from './Interface/Interface'
-import Garden from './Garden/Garden'
+import Creatures from './Creatures/Creatures'
 
 const GameState = {
     News: -1,
-    Garden: 0,
+    Creatures: 0,
     Inventory: 1,
     Auction: 2,
     Quests: 3,
@@ -17,15 +16,17 @@ class Game extends React.Component {
         super(props);
 
         this.state = {
-            state: GameState.Garden,
+            state: GameState.News,
         }
     }
 
     render = () => {
         return(
             <div className='Game'>
-                <Interface/>
-                {this.render_state()}
+                <Interface change_state={this.change_state} GameState={GameState}/>
+                <div className='Content'>
+                    {this.render_state()}
+                </div>
             </div>
         );
     }
@@ -33,10 +34,16 @@ class Game extends React.Component {
     render_state = () => {
         switch(this.state.state) {
             case GameState.News:
-                return (<>There should be news</>);
-            case GameState.Garden:
-                return (<Garden/>);
+                return (<>There should be newstyfghioasoi diosah iodiaos hiodh aioshdio ahsido hashd aihd sioashd ioahd ioa diso hdah dioah d</>);
+            case GameState.Creatures:
+                return (<Creatures/>);
         }
+    }
+
+    change_state = (state) => {
+        this.setState({
+            state: state,
+        });
     }
 }
 
