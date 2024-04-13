@@ -56,9 +56,8 @@ async fn recovery(recovery_data: web::Json<RecoveryRequest>, pool: web::Data<Poo
 
 pub fn config(cfg: &mut web::ServiceConfig) {
 	cfg.service(
-		web::scope("/api/entrance")
+		web::scope("/entrance")
 			.service(authorization)
 			.service(registration)
-			.service(recovery)
-	);
+			.service(recovery));
 }

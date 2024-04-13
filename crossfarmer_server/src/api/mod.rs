@@ -1,8 +1,10 @@
 mod entrance;
-mod gameplay;
+pub mod gameplay;
 
 use actix_web::web;
 
 pub fn config(cfg: &mut web::ServiceConfig) {
-	cfg.configure(entrance::config);
+	cfg.service(web::scope("/api")
+		.configure(entrance::config)
+		.configure(gameplay::config));
 }

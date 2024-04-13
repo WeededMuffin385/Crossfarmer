@@ -37,7 +37,7 @@ class Authorization extends React.Component {
                 <br/>
 
                 <label for='password'>Password</label>
-                <input id='password' type='text'/>
+                <input id='password' type='password'/>
 
                 <br/>
 

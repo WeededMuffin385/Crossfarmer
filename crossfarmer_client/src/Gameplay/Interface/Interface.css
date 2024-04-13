@@ -55,7 +55,15 @@
     background-color: hsl(60, 100%, 30%);
 }
 
-
+.Interface button.green {
+    background-color: hsl(84, 100%, 59%);
+}
+.Interface button.green:hover {
+    background-color: hsl(84, 100%, 79%);
+}
+.Interface button.green:active {
+    background-color: hsl(84, 100%, 39%);
+}
 
 
 
@@ -70,9 +78,10 @@
     padding-top: 10vh;
     border-radius: 15px;
 
-    background-color: blueviolet;
+    background-color: hsla(84, 100%, 59%, 0.5);
 
     z-index: 5;
+    display: none;
 
     > * {
         margin-bottom: 2.5vh;

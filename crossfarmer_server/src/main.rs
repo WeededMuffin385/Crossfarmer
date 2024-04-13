@@ -1,5 +1,6 @@
 mod database;
 mod api;
+mod world;
 
 use actix_cors::Cors;
 use actix_web::{web, App, HttpServer, Responder, HttpResponse};
@@ -12,13 +13,14 @@ async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
     info!("starting HTTP server at http://localhost:8080");
 
-    let pool = database::create();
+    let pool = web::Data::new(database::create());
+    actix_web::rt::spawn(world::run(pool.clone()));
 
     HttpServer::new(move || {
         App::new()
             .wrap(Logger::default())
             .wrap(Cors::permissive())
-            .app_data(web::Data::new(pool.clone()))
+            .app_data(pool.clone())
             .configure(api::config)
     })
         .bind(("0.0.0.0", 8080))?

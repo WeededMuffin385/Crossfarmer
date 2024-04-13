@@ -31,7 +31,7 @@ class Interface extends React.Component {
                         <img src={experience} title="Ваш комментарий при наведении"/>
                     </div>
 
-                    <button onClick={this.change_menu_visibility}>
+                    <button className='green' onClick={this.change_menu_visibility}>
                         Menu
                     </button>
                 </div>
@@ -48,7 +48,7 @@ class Interface extends React.Component {
     }
 
     change_menu_visibility = () => {
-        if (document.getElementById('menu').style.display === 'none') {
+        if (document.getElementById('menu').style.display !== 'block') {
             document.getElementById('menu').style.display = 'block';
         } else {
             document.getElementById('menu').style.display = 'none';

@@ -1,4 +1,4 @@
-.Game {
+.Gameplay {
     background-image: url('./Background.jpg');
     background-size: cover;
     background-position: center;
@@ -11,7 +11,7 @@
     height: 100vh;
 }
 
-.Game .Content {
+.Gameplay .Content {
     width: 95vw;
     height: 85vh;
 

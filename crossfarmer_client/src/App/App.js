@@ -1,11 +1,10 @@
 import React from 'react'
-import Game from "../Game/Game";
+import Gameplay from "../Gameplay/Gameplay";
 import Entrance from "../Entrance/Entrance";
-import './App.css';
 
 const AppState = {
     Entrance: 0,
-    Game: 1,
+    Gameplay: 1,
 }
 
 
@@ -26,8 +25,8 @@ class App extends React.Component {
         switch (this.state.state) {
             case AppState.Entrance:
                 return (<Entrance move_to_game={this.move_to_game} />);
-            case AppState.Game:
-                return (<Game/>)
+            case AppState.Gameplay:
+                return (<Gameplay/>)
         }
     }
 
@@ -39,7 +38,7 @@ class App extends React.Component {
 
     move_to_game = (received_token) => {
         this.setState({
-            state: AppState.Game,
+            state: AppState.Gameplay,
             token: received_token,
         });
     }

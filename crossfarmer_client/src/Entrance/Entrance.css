@@ -12,10 +12,9 @@
 }
 
 .Form {
-    max-width: 100vw;
     max-height: 100vh;
 
-    min-width: 40%;
+    width: 40vw;
 
     background-color: rgba(108, 220, 59, 0.737);
     border-radius: 10%;
@@ -56,7 +55,15 @@ button {
     border: none;
 
     font-size:250%;
-    background-color: aqua;
+    background-color: hsl(180, 100%, 50%);
+}
+
+button:hover {
+    background-color: hsl(180, 100%, 70%);
+}
+
+button:active {
+    background-color: hsl(180, 100%, 30%);
 }
 
 button.red {

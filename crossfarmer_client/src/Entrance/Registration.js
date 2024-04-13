@@ -5,11 +5,6 @@ class Registration extends React.Component {
         super(props);
 
         this.state = {
-            mail: '',
-            username: '',
-            password: '',
-
-
             status: {
                 received: false,
                 result: false,
@@ -62,9 +57,9 @@ class Registration extends React.Component {
     render_status = () => {
         return(
             <div>
-                <p className='Title'>
+                <h1>
                     {this.state.status.result ? 'Registration succeed' : 'Registration failed: ' + this.state.status.error}
-                </p>
+                </h1>
 
                 <div className='Result'>
                     <button variant="warning" type="submit" onClick={this.close_status}>Ok</button>
@@ -84,9 +79,9 @@ class Registration extends React.Component {
 
     try_registration = () => {
         let registration_data = {
-            mail: this.state.mail,
-            username: this.state.username,
-            password: this.state.password,
+            mail: document.getElementById("mail").value,
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
         };
         
         let hostname = window.location.hostname;

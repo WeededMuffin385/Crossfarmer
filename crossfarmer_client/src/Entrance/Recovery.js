@@ -44,9 +44,9 @@ class Recovery extends React.Component {
     render_status =  () => {
         return(
             <div>
-                <p className='Title'>
+                <h1>
                     {this.state.status.result ? 'Recovery mail sent' : 'Recovery failed: ' + this.state.status.error}
-                </p>
+                </h1>
 
                 <div className='Result'>
                     <button onClick={this.close_status}>Ok</button>
@@ -66,9 +66,9 @@ class Recovery extends React.Component {
 
     try_recovery = () => {
         let hostname = window.location.hostname;
-
+        
         let recovery_data = {
-            mail: this.state.mail,
+            mail: document.getElementById("mail").value,
         };
 
         fetch('http://' + hostname + ':8080/api/entrance/recovery', {

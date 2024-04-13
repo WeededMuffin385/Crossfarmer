@@ -19,7 +19,7 @@ pub fn create(pool: &Pool, mail: &str, username: &str, password: &str){
     let pool = pool.clone();
     let conn = pool.get().unwrap();
 
-    println!("[Account added] Mail: {}| username: {}| password: {}", mail, username, password);
+    println!("[Account added] Mail: {mail}| username: {username}| password: {password}");
 
     let statement = format!("
         INSERT INTO {ACCOUNTS_TABLE} (mail, username, password) VALUES (:mail, :username, :password)

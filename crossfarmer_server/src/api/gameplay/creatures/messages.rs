@@ -1,10 +1,17 @@
-pub struct FightRequest {
-	pub token: Uuid,
-	pub creature_id: usize,
+use rusqlite::Row;
+use serde::{Deserialize, Serialize};
+use uuid::Uuid;
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct AttackRequest {
+	pub id: usize,
 }
 
-pub struct FightResponse {
-	pub creature_id: usize,
-	pub damage_dealt: usize,
-	pub damage_taken: usize,
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Creature {
+	pub id: usize,
+	pub name: String,
+	pub level: usize,
+	pub health: usize,
 }

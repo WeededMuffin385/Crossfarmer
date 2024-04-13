@@ -3,16 +3,19 @@ use r2d2_sqlite::SqliteConnectionManager;
 pub mod accounts;
 pub mod sessions;
 pub mod guilds;
-mod creatures;
+pub mod creatures;
 
 pub type Pool = r2d2::Pool<SqliteConnectionManager>;
 
 pub const ACCOUNTS_TABLE: &str = "accounts";
 pub const SESSIONS_TABLE: &str = "sessions";
+
 pub const CURRENCY_TABLE: &str = "currency";
 pub const AUCTION_TABLE: &str = "auction";
 pub const GUILDS_TABLE: &str = "guilds";
 pub const GUILDS_MEMBERS_TABLE: &str = "guilds_members";
+
+pub const CREATURES_TYPES_TABLE: &str = "creatures_types";
 pub const CREATURES_TABLE: &str = "creatures";
 pub const CREATURES_DAMAGE_TABLE: &str = "creatures_damage";
 

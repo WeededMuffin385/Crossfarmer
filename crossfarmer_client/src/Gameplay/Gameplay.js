@@ -1,5 +1,5 @@
 import React from 'react'
-import './Game.css';
+import './Gameplay.css';
 import Interface from './Interface/Interface'
 import Creatures from './Creatures/Creatures'
 
@@ -11,7 +11,7 @@ const GameState = {
     Quests: 3,
 }
 
-class Game extends React.Component {
+class Gameplay extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,7 +22,7 @@ class Game extends React.Component {
 
     render = () => {
         return(
-            <div className='Game'>
+            <div className='Gameplay'>
                 <Interface change_state={this.change_state} GameState={GameState}/>
                 <div className='Content'>
                     {this.render_state()}
@@ -47,4 +47,4 @@ class Game extends React.Component {
     }
 }
 
-export default Game;
+export default Gameplay;
