@@ -1,0 +1,47 @@
+button {
+    width: 100%;
+    border-radius: 15px;
+    
+    border: none;
+
+    font-size:200%;
+    background-color: hsl(180, 100%, 50%);
+}
+
+button:hover {
+    background-color: hsl(180, 100%, 70%);
+}
+
+button:active {
+    background-color: hsl(180, 100%, 30%);
+}
+
+button.red {
+    background-color: hsl(0, 100%, 50%);
+}
+button.red:hover {
+    background-color: hsl(0, 100%, 70%);
+}
+button.red:active {
+    background-color: hsl(0, 100%, 30%);
+}
+
+button.green {
+    background-color: hsl(84, 100%, 59%);
+}
+button.green:hover {
+    background-color: hsl(84, 100%, 79%);
+}
+button.green:active {
+    background-color: hsl(84, 100%, 39%);
+}
+
+button.orange {
+    background-color: hsl(39, 100%, 50%);
+}
+button.orange:hover {
+    background-color: hsl(39, 100%, 70%);
+}
+button.orange:active {
+    background-color: hsl(39, 100%, 30%);
+}

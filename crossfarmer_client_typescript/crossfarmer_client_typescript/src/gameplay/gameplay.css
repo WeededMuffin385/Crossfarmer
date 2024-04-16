@@ -1,0 +1,7 @@
+div.Gameplay{
+    background-image: url('../assets/images/background_dark_forest.jpg');
+    background-size: cover;
+
+    width: 100vw;
+    height: 100vh;
+}
