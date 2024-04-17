@@ -9,6 +9,8 @@ div.Application {
 
     overflow: hidden;
 
+    font-size: initial;
+
     input {
         width: 100%;
         border-radius: 15px;

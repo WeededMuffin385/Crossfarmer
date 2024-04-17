@@ -9,7 +9,7 @@ type Props = {
 type Response = {
     received: boolean,
     success: boolean,
-    error: String,
+    error: string,
 }
 
 const Registration: React.FC<Props> = (props) => {

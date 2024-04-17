@@ -7,13 +7,13 @@ type Props = {
     setEntranceState: (next_state: EntranceState) => void,
 
     setApplicationState: (applicationState: ApplicationState) => void,
-    setToken: (token: String) => void,
+    setToken: (token: string) => void,
 }
 
 type Response = {
     received: boolean,
     success: boolean,
-    error: String,
+    error: string,
 }
 
 const Authorization: React.FC<Props> = (props) => {

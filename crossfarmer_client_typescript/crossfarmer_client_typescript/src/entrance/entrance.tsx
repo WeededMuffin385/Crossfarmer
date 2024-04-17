@@ -14,7 +14,7 @@ enum EntranceState {
 
 type Props = {
     setApplicationState: (applicationState: ApplicationState) => void,
-    setToken: (token: String) => void,
+    setToken: (token: string) => void,
 }
 
 

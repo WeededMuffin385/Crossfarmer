@@ -35,7 +35,32 @@ const Gameplay: React.FC<Props> = (props) => {
 
     return (
         <div className='Gameplay'>
-            <RenderState/>
+            <div className='Top'>
+                <div className='Bar'>
+                    <img src={require('../assets/images/icons/coin.png')}/>
+                    Coin
+                </div>
+                <div className='Bar'>
+                    <img src={require('../assets/images/icons/gemRed.png')}/>
+                    Gem
+                </div>
+                <div className='Bar'>
+                    <img src={require('../assets/images/icons/scroll.png')}/>
+                    Experience
+                </div>
+            </div>
+
+            <div className='Bottom'>
+                <div className='Center'>
+                    <RenderState/>
+                </div>
+
+                <div className='Right'>
+                    <button>Creatures</button>
+                    <button>Inventory</button>
+                    <button>Quests</button>
+                </div>
+            </div>
         </div>
     )
 }
