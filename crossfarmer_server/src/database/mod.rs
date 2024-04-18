@@ -4,6 +4,7 @@ pub mod accounts;
 pub mod sessions;
 pub mod guilds;
 pub mod creatures;
+pub mod messages;
 
 pub type Pool = r2d2::Pool<SqliteConnectionManager>;
 
@@ -19,6 +20,9 @@ pub const CREATURES_TYPES_TABLE: &str = "creatures_types";
 pub const CREATURES_TABLE: &str = "creatures";
 pub const CREATURES_DAMAGE_TABLE: &str = "creatures_damage";
 
+
+pub const MESSAGES_TABLE: &str = "messages";
+
 pub fn create() -> Pool {
     let manager = SqliteConnectionManager::file("database.db");
     let pool = r2d2::Pool::new(manager).expect("Unable to create database pool!");
@@ -32,4 +36,5 @@ fn create_tables(pool: &Pool) {
     guilds::create_table(&conn);
     sessions::create_table(&conn);
     creatures::create_table(&conn);
+    messages::create_table(&conn);
 }

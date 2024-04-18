@@ -13,7 +13,7 @@ pub fn run(pool: Data<Pool>) {
 	rt.spawn(async move {
 		signal::ctrl_c().await.expect("Failed to listen for ctrl_c");
 		sender.send(true).expect("Unable to send break");
-		println!("Server is stopping due to Ctrl+C signal");
+		println!("World is stopping due to Ctrl+C signal");
 	});
 
 	loop {
@@ -25,6 +25,7 @@ pub fn run(pool: Data<Pool>) {
 		}
 
 		if let Ok(_) = receiver.try_recv() {
+			println!("World stopped");
 			break;
 		}
 	}

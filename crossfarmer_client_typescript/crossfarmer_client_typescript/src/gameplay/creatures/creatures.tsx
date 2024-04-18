@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import './creatures.css'
+import { ApplicationState } from "../../application/application";
 
 
 type Creature = {id: number, name: string, level: number, health: number};
-type Creatures = Creature[];
 
 
+type Props = {
+    setApplicationState: (applicationState: ApplicationState) => void,
+}
 
-
-const Creatures = () => {
-    const [creatures, setCreatures] = useState<Creatures>([]);
+const Creatures: React.FC<Props> = (props) => {
+    const [creatures, setCreatures] = useState<Creature[]>([]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        const creatures_interval = setInterval(() => {
             updateCreatures();
         }, 1000);
 
 
         return () => {
-            clearInterval(interval);
+            clearInterval(creatures_interval);
         }
     }, []);
 
@@ -29,6 +31,8 @@ const Creatures = () => {
             response.json().then((data) => {
                 setCreatures(data);
             });
+        }).catch((error) => {
+            props.setApplicationState(ApplicationState.Entrance);
         });
     }
 

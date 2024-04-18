@@ -7,7 +7,7 @@ pub mod messages;
 /*
 TODO: Player that will fight creature should be recognised via <bearer> token, that is located in <SESSIONS> table
 TODO: Idea is to transform token to player, so we would acquire useful data about player stats (like damage)
- */
+*/
 
 
 #[post("/attack")]

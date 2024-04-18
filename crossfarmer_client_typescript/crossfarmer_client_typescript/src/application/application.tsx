@@ -11,7 +11,7 @@ enum ApplicationState {
 
 const Application = () => {
     const [applicationState, setApplicationState] = useState<ApplicationState>(ApplicationState.Entrance);
-    const [token, setToken] = useState<String>('');
+    const [token, setToken] = useState<string>('');
 
     const RenderState = () => {
         switch (applicationState) {

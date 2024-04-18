@@ -39,6 +39,20 @@ pub fn create(pool: &Pool, mail: &str) -> Uuid {
     token
 }
 
-pub fn exists(pool: &Pool, mail: &str) -> bool {
-    return true;
+pub fn get_mail(pool: &Pool, token: &str) -> Option<String> {
+    let pool = pool.clone();
+    let conn = pool.get().unwrap();
+
+    let statement = format!("
+        SELECT mail FROM {SESSIONS_TABLE} WHERE token = :token
+    ");
+
+    let mut statement = conn.prepare(statement.as_str()).unwrap();
+    let rows = statement.query_map(named_params! {":token": token}, |row|row.get(0)).unwrap();
+
+    if let Some(token) = rows.last() {
+        token.unwrap()
+    } else {
+        None
+    }
 }

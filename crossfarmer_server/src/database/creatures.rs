@@ -63,12 +63,12 @@ pub fn list(pool: &Pool) -> Vec<Creature> {
 		LEFT JOIN {CREATURES_TYPES_TABLE} ON {CREATURES_TABLE}.type = {CREATURES_TYPES_TABLE}.type
     ");
 
-	let mut statement = conn.prepare(statement.as_str()).expect("wrong request");
+	let mut statement = conn.prepare(statement.as_str()).unwrap();
 	let rows = statement.query_map([], |row|{
 		Ok(Creature::from_row(row))
 	}).unwrap();
 
-	rows.map(|row| row.unwrap()).collect::<Vec<Creature>>()
+	rows.map(|row| row.unwrap()).collect()
 }
 
 pub fn attack(id: usize, pool: &Pool) {
@@ -80,7 +80,7 @@ pub fn attack(id: usize, pool: &Pool) {
 		WHERE id == :id
 	");
 
-	let mut statement = conn.prepare(statement.as_str()).expect("wrong request");
+	let mut statement = conn.prepare(statement.as_str()).unwrap();
 	let rows = statement.query_map(named_params! {":id": id}, |row| row.get(0)).unwrap();
 
 	let damage = 5;
@@ -98,8 +98,8 @@ pub fn attack(id: usize, pool: &Pool) {
 		WHERE id == :id
 	");
 
-	let mut statement = conn.prepare(statement.as_str()).expect("wrong request");
-	statement.execute(named_params! {":id": id, ":health": health}).expect("something went wrong");
+	let mut statement = conn.prepare(statement.as_str()).unwrap();
+	statement.execute(named_params! {":id": id, ":health": health}).unwrap();
 }
 
 pub fn spawn(pool: &Pool) {
@@ -114,6 +114,6 @@ pub fn spawn(pool: &Pool) {
 	let level = rand::thread_rng().gen_range(1..=100);
 	let health = rand::thread_rng().gen_range(1..=1000);
 
-	let mut statement = conn.prepare(statement.as_str()).expect("wrong request");
-	statement.execute(named_params! {":type": type_value, ":level": level, ":health": health}).expect("something went wrong");
+	let mut statement = conn.prepare(statement.as_str()).unwrap();
+	statement.execute(named_params! {":type": type_value, ":level": level, ":health": health}).unwrap();
 }

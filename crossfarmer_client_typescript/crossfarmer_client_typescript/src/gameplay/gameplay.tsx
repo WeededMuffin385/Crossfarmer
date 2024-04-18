@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Creatures from "./creatures/creatures";
 import Inventory from "./inventory/inventory";
 import Quests from "./quests/quests";
 import { ApplicationState } from "../application/application";
 import './gameplay.css'
+import Chat from "./chat/chat";
+
+
+
 
 
 enum GameplayState {
@@ -14,7 +18,7 @@ enum GameplayState {
 
 type Props = {
     setApplicationState: (applicationState: ApplicationState) => void,
-    token: String,
+    token: string,
 }
 
 
@@ -24,7 +28,7 @@ const Gameplay: React.FC<Props> = (props) => {
     const RenderState = () => {
         switch (gameplayState) {
             case GameplayState.Creatures:
-                return <Creatures/>
+                return <Creatures setApplicationState={props.setApplicationState}/>
             case GameplayState.Inventory:
                 return <Inventory/>
             case GameplayState.Quests:
@@ -33,16 +37,18 @@ const Gameplay: React.FC<Props> = (props) => {
     }
 
 
+
+
     return (
         <div className='Gameplay'>
             <div className='Top'>
                 <div className='Bar'>
                     <img src={require('../assets/images/icons/coin.png')}/>
-                    Coin
+                    Currency
                 </div>
                 <div className='Bar'>
                     <img src={require('../assets/images/icons/gemRed.png')}/>
-                    Gem
+                    Premium
                 </div>
                 <div className='Bar'>
                     <img src={require('../assets/images/icons/scroll.png')}/>
@@ -56,9 +62,15 @@ const Gameplay: React.FC<Props> = (props) => {
                 </div>
 
                 <div className='Right'>
-                    <button>Creatures</button>
-                    <button>Inventory</button>
-                    <button>Quests</button>
+                    <div className='Content'>
+                        <div className='Buttons'>
+                            <button>Creatures</button>
+                            <button>Inventory</button>
+                            <button>Quests</button>
+                        </div>
+
+                        <Chat token={props.token}/>
+                    </div>
                 </div>
             </div>
         </div>
