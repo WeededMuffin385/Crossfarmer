@@ -1,2 +1,2 @@
-# Web-Farmer
-Web application that should use ReactJS as frontend and Rust Actix as backend.
+# Crossfarmer
+Almost multiplayer (almost game) game that uses React+TS for frontend and Rust+Actix for backend.
