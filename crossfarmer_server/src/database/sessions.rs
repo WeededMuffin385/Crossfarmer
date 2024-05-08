@@ -6,14 +6,14 @@ use uuid::Uuid;
 
 use crate::database::*;
 
-pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
+pub fn create_table(conn: &Conn) {
     let statement = format!("
         CREATE TABLE IF NOT EXISTS {SESSIONS_TABLE}(
             token TEXT PRIMARY KEY,
-            mail TEXT,
+            account_id INTEGER,
             date DATE,
 
-            FOREIGN KEY (mail) REFERENCES {ACCOUNTS_TABLE}(mail)
+            FOREIGN KEY (account_id) REFERENCES {ACCOUNTS_TABLE}(id)
         );
     ");
     conn.execute(statement.as_str(), ()).expect("unable to configure via prepare");
@@ -24,27 +24,23 @@ pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
     conn.execute(statement.as_str(), ()).expect("unable to configure via prepare");
 }
 
-pub fn create(pool: &Pool, mail: &str) -> Uuid {
-    let pool = pool.clone();
-    let conn = pool.get().unwrap();
-
+pub fn create(conn: &Conn, mail: &str) -> Uuid {
     let token = Uuid::new_v4();
     let date = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs();
 
     let statement = format!("
-        INSERT INTO {SESSIONS_TABLE} (token, mail, date) VALUES (:token, :mail, :date)
+        INSERT INTO {SESSIONS_TABLE} (token, account_id, date) VALUES (:token, :account_id, :date)
     ");
 
-    conn.execute(statement.as_str(), named_params!{":token": token.to_string(), ":mail": mail, ":date": date}).unwrap();
+    let account_id = crate::database::accounts::get_id(&conn, mail);
+
+    conn.execute(statement.as_str(), named_params!{":token": token.to_string(), ":account_id": account_id, ":date": date}).unwrap();
     token
 }
 
-pub fn get_mail(pool: &Pool, token: &str) -> Option<String> {
-    let pool = pool.clone();
-    let conn = pool.get().unwrap();
-
+pub fn get_account_id(conn: &Conn, token: &str) -> Option<usize> {
     let statement = format!("
-        SELECT mail FROM {SESSIONS_TABLE} WHERE token = :token
+        SELECT account_id FROM {SESSIONS_TABLE} WHERE token = :token
     ");
 
     let mut statement = conn.prepare(statement.as_str()).unwrap();

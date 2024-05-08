@@ -63,7 +63,7 @@ const Registration: React.FC<Props> = (props) => {
                 </h1>
 
                 <div className='Result'>
-                    <button onClick={() => {setResponse({received: false, success: false, error: ''})}}>Ok</button>
+                    <button onClick={() => {setResponse({received: false, success: false, error: ''}); props.setEntranceState(EntranceState.Authorization)}}>Ok</button>
                 </div>
             </div>
         )

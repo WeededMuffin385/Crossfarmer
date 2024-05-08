@@ -3,17 +3,17 @@ use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::{named_params, Row};
 use crate::api::messages::messages::Message;
 
-use crate::database::{ACCOUNTS_TABLE, MESSAGES_TABLE, Pool};
+use crate::database::{ACCOUNTS_TABLE, Conn, MESSAGES_TABLE, Pool};
 
-pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
+pub fn create_table(conn: &Conn) {
 	let statement = format!("
         CREATE TABLE IF NOT EXISTS {MESSAGES_TABLE}(
             id TEXT PRIMARY KEY,
-            mail TEXT NOT NULL,
+            account_id INTEGER NOT NULL,
             message TEXT
         )
     ");
-	conn.execute(statement.as_str(), ()).expect("unable to configure via prepare");
+	conn.execute(&statement, []).expect("unable to configure via prepare");
 }
 
 impl Message {
@@ -31,7 +31,7 @@ pub fn list(pool: &Pool) -> Vec<Message> {
 
 	let statement = format!("
         SELECT username, message FROM {MESSAGES_TABLE}
-		LEFT JOIN {ACCOUNTS_TABLE} ON {MESSAGES_TABLE}.mail = {ACCOUNTS_TABLE}.mail
+		LEFT JOIN {ACCOUNTS_TABLE} ON {MESSAGES_TABLE}.account_id = {ACCOUNTS_TABLE}.id
     ");
 
 	let mut statement = conn.prepare(&statement).unwrap();
@@ -42,14 +42,14 @@ pub fn list(pool: &Pool) -> Vec<Message> {
 	rows.map(|row| row.unwrap()).collect()
 }
 
-pub fn send(pool: &Pool, mail: String, message: String) {
+pub fn send(pool: &Pool, account_id: usize, message: String) {
 	let pool = pool.clone();
 	let conn = pool.get().unwrap();
 
 	let statement = format!("
-		INSERT INTO {MESSAGES_TABLE}(mail, message) VALUES (:mail, :message)
+		INSERT INTO {MESSAGES_TABLE}(account_id, message) VALUES (:account_id, :message)
 	");
 
 	let mut statement = conn.prepare(statement.as_str()).unwrap();
-	statement.execute(named_params! {":mail": mail, ":message": message}).unwrap();
+	statement.execute(named_params! {":account_id": account_id, ":message": message}).unwrap();
 }

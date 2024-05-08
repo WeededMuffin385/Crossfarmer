@@ -3,10 +3,11 @@ import './creatures.css'
 import { ApplicationState } from "../../application/application";
 
 
-type Creature = {id: number, name: string, level: number, health: number};
+type Creature = {id: number, name: string, level: number, health: number, damage: number};
 
 
 type Props = {
+    token: string,
     setApplicationState: (applicationState: ApplicationState) => void,
 }
 
@@ -43,7 +44,8 @@ const Creatures: React.FC<Props> = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: id,
+                token: props.token,
+                creature_id: id,
             }),
         }).then((response) => {
             console.log('attacked');
@@ -67,7 +69,7 @@ const Creatures: React.FC<Props> = (props) => {
                     <tr>
                         <td>{creature.name}</td>
                         <td>{creature.level}</td>
-                        <td>{creature.health}</td>
+                        <td>{creature.health - creature.damage}</td>
                         <td className='Action'>
                             <button onClick={()=>{attackCreature(creature.id)}}>fight</button>
                             <button>inspect</button>

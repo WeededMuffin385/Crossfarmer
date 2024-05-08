@@ -3,7 +3,7 @@ use r2d2_sqlite::SqliteConnectionManager;
 
 use crate::database::*;
 
-pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
+pub fn create_table(conn: &Conn) {
     let statement = format!("
         CREATE TABLE IF NOT EXISTS {GUILDS_TABLE}(
             id INTEGER PRIMARY KEY,

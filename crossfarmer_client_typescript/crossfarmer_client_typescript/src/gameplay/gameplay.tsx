@@ -28,7 +28,7 @@ const Gameplay: React.FC<Props> = (props) => {
     const RenderState = () => {
         switch (gameplayState) {
             case GameplayState.Creatures:
-                return <Creatures setApplicationState={props.setApplicationState}/>
+                return <Creatures token={props.token} setApplicationState={props.setApplicationState}/>
             case GameplayState.Inventory:
                 return <Inventory/>
             case GameplayState.Quests:
@@ -62,15 +62,13 @@ const Gameplay: React.FC<Props> = (props) => {
                 </div>
 
                 <div className='Right'>
-                    <div className='Content'>
-                        <div className='Buttons'>
-                            <button>Creatures</button>
-                            <button>Inventory</button>
-                            <button>Quests</button>
-                        </div>
-
-                        <Chat token={props.token}/>
+                    <div className='Buttons'>
+                        <button onClick={() => {setGameplayState(GameplayState.Creatures)}}>Creatures</button>
+                        <button onClick={() => {setGameplayState(GameplayState.Inventory)}}>Inventory</button>
+                        <button onClick={() => {setGameplayState(GameplayState.Quests)}}>Quests</button>
                     </div>
+
+                    <Chat token={props.token}/>
                 </div>
             </div>
         </div>

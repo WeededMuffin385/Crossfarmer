@@ -4,7 +4,8 @@ use uuid::Uuid;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AttackRequest {
-	pub id: usize,
+	pub token: String,
+	pub creature_id: usize,
 }
 
 
@@ -14,4 +15,5 @@ pub struct Creature {
 	pub name: String,
 	pub level: usize,
 	pub health: usize,
+	pub damage: usize,
 }

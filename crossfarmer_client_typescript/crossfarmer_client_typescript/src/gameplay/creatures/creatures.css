@@ -6,6 +6,11 @@ div.Creatures {
     overflow-y: scroll;
     scrollbar-width: none;
 
+
+    th{
+        color: greenyellow;
+    }
+
     table {
         width: 100%;
         

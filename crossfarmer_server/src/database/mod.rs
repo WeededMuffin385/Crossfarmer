@@ -1,3 +1,4 @@
+use r2d2::PooledConnection;
 use r2d2_sqlite::SqliteConnectionManager;
 
 pub mod accounts;
@@ -7,6 +8,7 @@ pub mod creatures;
 pub mod messages;
 
 pub type Pool = r2d2::Pool<SqliteConnectionManager>;
+pub type Conn = PooledConnection<SqliteConnectionManager>;
 
 pub const ACCOUNTS_TABLE: &str = "accounts";
 pub const SESSIONS_TABLE: &str = "sessions";
@@ -24,7 +26,7 @@ pub const CREATURES_DAMAGE_TABLE: &str = "creatures_damage";
 pub const MESSAGES_TABLE: &str = "messages";
 
 pub fn create() -> Pool {
-    let manager = SqliteConnectionManager::file("database.db");
+    let manager = SqliteConnectionManager::file("assets/database.db");
     let pool = r2d2::Pool::new(manager).expect("Unable to create database pool!");
     create_tables(&pool);
     return pool;

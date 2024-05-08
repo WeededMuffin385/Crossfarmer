@@ -1,4 +1,4 @@
-
+import './inventory.css';
 
 
 
@@ -7,8 +7,13 @@
 
 const Inventory = () => {
     return (
-        <div>
-            Inventory here
+        <div className='Inventory'>            
+            <table>
+                <thead>
+                    <th>name</th>
+                    <th>interaction</th>
+                </thead>
+            </table>
         </div>
     )
 }

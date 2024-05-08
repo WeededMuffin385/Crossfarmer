@@ -1,0 +1,9 @@
+div.Inventory{
+
+
+    table{
+        width: 100%;
+        background-color: aliceblue;
+        border-radius: 15px;
+    }
+}

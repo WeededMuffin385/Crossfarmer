@@ -13,7 +13,7 @@ div.Gameplay{
         border-radius: 15px;
 
         display: flex;
-        div {
+        div.Bar{
             font-size: 200%;
 
             text-align: center;
@@ -26,7 +26,7 @@ div.Gameplay{
 
             border-radius: 15px;
 
-            width: 25%;
+            width: 100%;
 
             img{
                 float: right;
@@ -58,20 +58,21 @@ div.Gameplay{
             border-radius: 15px;
 
             background-color:rgba(128, 255, 0, 0.5);
-            width: 25%;
+            min-width: 25%;
+            max-width: 50%;
             height: 100%;
-        
-            div.Content {
-                margin-left: 15px;
-                margin-right: 15px;
-                height: 100%;
 
-                div.Buttons{
-                    margin-bottom: 15px;
-                    button {
-                        margin-top: 15px;
-                        width: 100%;
-                    }
+            padding-left: 15px;
+            padding-right: 15px;
+
+            display: flex;
+            flex-direction: column;
+
+            div.Buttons{
+                margin-bottom: 15px;
+                button {
+                    margin-top: 15px;
+                    width: 100%;
                 }
             }
         }

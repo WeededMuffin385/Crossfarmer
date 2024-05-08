@@ -13,12 +13,18 @@ const Chat: React.FC<Props> = (props) => {
     useEffect(() => {
         const messages_interval = setInterval(() => {
             updateMessages();
+            scrollToBottom();
         }, 1000);
 
         return () => {
             clearInterval(messages_interval);
         }
     }, []);
+
+    const scrollToBottom = () => {
+        let bottom = document.getElementById("bottom") as HTMLInputElement;
+        bottom.scrollIntoView({ behavior: "smooth" });
+    }
 
     const sendMessage = () => {
         let message = document.getElementById("message") as HTMLInputElement;
@@ -60,7 +66,8 @@ const Chat: React.FC<Props> = (props) => {
                     <div>
                         {'[' + message.username + ']' + message.message}
                     </div>
-                ))}    
+                ))} 
+                <div id='bottom'/>
             </div>
 
             <input id='message' onKeyDown={handleEnterKeyDown}/>

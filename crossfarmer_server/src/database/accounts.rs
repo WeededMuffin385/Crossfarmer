@@ -3,10 +3,10 @@ use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::named_params;
 use crate::database::*;
 
-pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
+pub fn create_table(conn: &Conn) {
     let statement = format!("
         CREATE TABLE IF NOT EXISTS {ACCOUNTS_TABLE}(
-            id TEXT PRIMARY KEY,
+            id INTEGER PRIMARY KEY,
             mail TEXT UNIQUE NOT NULL,
             username TEXT,
             password TEXT
@@ -15,10 +15,7 @@ pub fn create_table(conn: &PooledConnection<SqliteConnectionManager>) {
     conn.execute(statement.as_str(), ()).expect("unable to configure via prepare");
 }
 
-pub fn create(pool: &Pool, mail: &str, username: &str, password: &str){
-    let pool = pool.clone();
-    let conn = pool.get().unwrap();
-
+pub fn create(conn: &Conn, mail: &str, username: &str, password: &str){
     println!("[Account added] Mail: {mail}| username: {username}| password: {password}");
 
     let statement = format!("
@@ -31,10 +28,17 @@ pub fn create(pool: &Pool, mail: &str, username: &str, password: &str){
     ).unwrap();
 }
 
-pub fn authorize(pool: &Pool, mail: &str, password: &str) -> bool {
-    let pool = pool.clone();
-    let conn = pool.get().unwrap();
+pub fn get_id(conn: &Conn, mail: &str) -> usize {
+    let statement = format!("
+        SELECT id FROM {ACCOUNTS_TABLE} WHERE mail = :mail
+    ");
 
+    let mut statement = conn.prepare(&statement).unwrap();
+    let rows = statement.query_map(named_params! {":mail": mail}, |row| row.get(0)).unwrap();
+    rows.last().unwrap().unwrap()
+}
+
+pub fn authorize(conn: &Conn, mail: &str, password: &str) -> bool {
     let statement = format!("
         SELECT COUNT(*) FROM {ACCOUNTS_TABLE} WHERE mail = :mail AND password = :password
     ");
@@ -49,10 +53,7 @@ pub fn authorize(pool: &Pool, mail: &str, password: &str) -> bool {
     count == 1
 }
 
-pub fn exists(pool: &Pool, mail: &str) -> bool {
-    let pool = pool.clone();
-    let conn = pool.get().unwrap();
-
+pub fn exists(conn: &Conn, mail: &str) -> bool {
     let statement = format!("
         SELECT COUNT(*) FROM {ACCOUNTS_TABLE} WHERE mail = :mail
     ");

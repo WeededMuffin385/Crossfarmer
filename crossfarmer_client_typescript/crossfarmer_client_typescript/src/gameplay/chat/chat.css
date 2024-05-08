@@ -1,25 +1,27 @@
 div.Chat{
-    height: 75%;
-    margin-bottom: 15px;
-    
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    overflow-x: hidden;
     
     div.Messages {
+        height: 100%;
+
+        scrollbar-width: none;
+        overflow-y: scroll;
         font-size: larger;
 
-        height: 85%;
         border-radius: 15px;
         background-color: wheat;
 
         margin-bottom: 15px;
         padding: 3px;
-
-        overflow-y: scroll;
-        scrollbar-width: none;
     }
 
     input{
         width: calc(100% - 5px);
         font-size: larger;
-        height: 7.5%;
     }
 }

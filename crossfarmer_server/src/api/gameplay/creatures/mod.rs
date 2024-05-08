@@ -12,15 +12,19 @@ TODO: Idea is to transform token to player, so we would acquire useful data abou
 
 #[post("/attack")]
 async fn attack(attack_data: web::Json<AttackRequest>, pool: web::Data<Pool>) -> impl Responder {
-	let AttackRequest {id} = attack_data.into_inner();
-	crate::database::creatures::attack(id, &pool);
+	let conn = pool.get().unwrap();
+
+	let AttackRequest {token, creature_id} = attack_data.into_inner();
+	crate::database::creatures::attack(&conn, token, creature_id);
 	HttpResponse::Ok().finish()
 }
 
 
 #[get("/list")]
 async fn list(pool: web::Data<Pool>) -> impl Responder {
-	let creatures = crate::database::creatures::list(&pool);
+	let conn = pool.get().unwrap();
+
+	let creatures = crate::database::creatures::list(&conn);
 	HttpResponse::Ok().json(creatures)
 }
 
