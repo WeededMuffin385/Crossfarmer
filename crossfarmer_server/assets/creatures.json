@@ -1,11 +1,17 @@
 [
     {
-        "name": "Ogre"
+        "name": "Ogre",
+        "health": 70,
+        "health_per_level": 9
     },
     {
-        "name": "Zombie"
+        "name": "Zombie",
+        "health": 105,
+        "health_per_level": 5
     },
     {
-        "name": "Unicorn"
+        "name": "Unicorn",
+        "health": 155,
+        "health_per_level": 17
     }
 ]

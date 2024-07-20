@@ -17,7 +17,7 @@ pub fn run(pool: Data<Pool>) {
 	});
 
 	loop {
-		if instant.elapsed().as_secs_f32() >= 1.0 {
+		if instant.elapsed().as_secs() >= 1 {
 			let conn = pool.get().unwrap();
 			let creatures = crate::database::creatures::list(&conn);
 			if creatures.len() < 30 { crate::database::creatures::spawn(&conn); }

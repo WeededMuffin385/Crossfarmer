@@ -1,5 +1,6 @@
 use actix_web::{get, HttpResponse, post, Responder, web};
-use crate::api::gameplay::creatures::messages::AttackRequest;
+use serde::{Deserialize, Serialize};
+use crate::api::gameplay::creatures::messages::{AttackRequest};
 use crate::database::Pool;
 
 pub mod messages;

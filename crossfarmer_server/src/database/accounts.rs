@@ -2,6 +2,7 @@ use r2d2::PooledConnection;
 use r2d2_sqlite::SqliteConnectionManager;
 use rusqlite::named_params;
 use crate::database::*;
+use crate::database::sessions::get_account_id;
 
 pub fn create_table(conn: &Conn) {
     let statement = format!("
@@ -9,7 +10,8 @@ pub fn create_table(conn: &Conn) {
             id INTEGER PRIMARY KEY,
             mail TEXT UNIQUE NOT NULL,
             username TEXT,
-            password TEXT
+            password TEXT,
+            balance INTEGER
         )
     ");
     conn.execute(statement.as_str(), ()).expect("unable to configure via prepare");
@@ -19,7 +21,7 @@ pub fn create(conn: &Conn, mail: &str, username: &str, password: &str){
     println!("[Account added] Mail: {mail}| username: {username}| password: {password}");
 
     let statement = format!("
-        INSERT INTO {ACCOUNTS_TABLE} (mail, username, password) VALUES (:mail, :username, :password)
+        INSERT INTO {ACCOUNTS_TABLE} (mail, username, password, balance) VALUES (:mail, :username, :password, 0)
     ");
 
     conn.execute(
@@ -66,4 +68,21 @@ pub fn exists(conn: &Conn, mail: &str) -> bool {
 
     let count: i32 = result.last().unwrap().unwrap();
     count == 1
+}
+
+pub fn balance(conn: &Conn, token: &str) -> f64 {
+    if let Some(account_id) = get_account_id(conn, token) {
+        let statement = format!("
+            SELECT balance FROM {ACCOUNTS_TABLE} WHERE id = :account_id
+        ");
+        let mut statement = conn.prepare(statement.as_str()).expect("wrong request");
+        let result = statement.query_map(
+            named_params! {":account_id": account_id},
+            |row| row.get(0)
+        ).unwrap();
+
+        result.last().unwrap().unwrap()
+    } else {
+        0.0
+    }
 }

@@ -8,27 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e89bece-9b23-406e-967b-d08c1e6e13c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/entrance/registration/registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/entrance/registration/registration.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/chat/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/chat/chat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/chat/chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/chat/chat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/creatures/creatures.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/creatures/creatures.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/creatures/creatures.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/creatures/creatures.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/gameplay.css" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/gameplay.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/gameplay/accounts/mod.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/items.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mail/credentials.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mail/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/gameplay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/gameplay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/inventory/inventory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../crossfarmer_client_typescript/crossfarmer_client_typescript/src/gameplay/inventory/inventory.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/creatures_types.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/entrance/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/entrance/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/creatures.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/creatures.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/assets/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/gameplay/creatures/messages.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/messages.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/gameplay/creatures/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/gameplay/creatures/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/messages/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/messages/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/gameplay/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/gameplay/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/accounts.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/accounts.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/creatures.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/creatures.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/guilds.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/guilds.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/messages.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/messages.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/sessions.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/sessions.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/world/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/world/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +144,13 @@
       <workItem from="1714125306051" duration="3652000" />
       <workItem from="1714938801754" duration="1199000" />
       <workItem from="1715068175760" duration="1911000" />
-      <workItem from="1715197985870" duration="5691000" />
+      <workItem from="1715197985870" duration="6327000" />
+      <workItem from="1715251261888" duration="5481000" />
+      <workItem from="1715269251055" duration="3163000" />
+      <workItem from="1715676662196" duration="704000" />
+      <workItem from="1715942716405" duration="4711000" />
+      <workItem from="1715948138722" duration="553000" />
+      <workItem from="1716121459311" duration="235000" />
     </task>
     <servers />
   </component>

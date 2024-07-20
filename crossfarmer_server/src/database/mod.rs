@@ -6,9 +6,12 @@ pub mod sessions;
 pub mod guilds;
 pub mod creatures;
 pub mod messages;
+mod items;
 
 pub type Pool = r2d2::Pool<SqliteConnectionManager>;
 pub type Conn = PooledConnection<SqliteConnectionManager>;
+
+pub const ITEMS_TABLE: &str = "items";
 
 pub const ACCOUNTS_TABLE: &str = "accounts";
 pub const SESSIONS_TABLE: &str = "sessions";
@@ -19,7 +22,9 @@ pub const GUILDS_TABLE: &str = "guilds";
 pub const GUILDS_MEMBERS_TABLE: &str = "guilds_members";
 
 pub const CREATURES_TYPES_TABLE: &str = "creatures_types";
+pub const CREATURES_TYPES_AWARDS: &str = "creatures_types_awards";
 pub const CREATURES_TABLE: &str = "creatures";
+pub const CREATURES_AWARDS_TABLE: &str = "creatures_awards";
 pub const CREATURES_DAMAGE_TABLE: &str = "creatures_damage";
 
 

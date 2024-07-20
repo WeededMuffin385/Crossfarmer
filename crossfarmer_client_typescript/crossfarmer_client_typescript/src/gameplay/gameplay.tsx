@@ -8,8 +8,6 @@ import Chat from "./chat/chat";
 
 
 
-
-
 enum GameplayState {
     Creatures,
     Inventory,
@@ -24,6 +22,30 @@ type Props = {
 
 const Gameplay: React.FC<Props> = (props) => {
     const [gameplayState, setGameplayState] = useState<GameplayState>(GameplayState.Creatures);
+    const [balance, setBalance] = useState<number>(0);
+
+    const updateBalance = () => {
+        fetch('http://' + window.location.hostname + ':8080/api/gameplay/accounts/balance', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token: props.token
+            }),
+        }).then((response) => {
+            response.json().then((data) => {
+                setBalance(data.balance);
+            });
+        });
+    }
+
+    useEffect(() => {
+        const balance_interval = setInterval(() => {
+            updateBalance();
+        }, 1000);
+    }, [updateBalance]);
+
 
     const RenderState = () => {
         switch (gameplayState) {
@@ -39,12 +61,13 @@ const Gameplay: React.FC<Props> = (props) => {
 
 
 
+
     return (
         <div className='Gameplay'>
             <div className='Top'>
                 <div className='Bar'>
                     <img src={require('../assets/images/icons/coin.png')}/>
-                    Currency
+                    {balance}
                 </div>
                 <div className='Bar'>
                     <img src={require('../assets/images/icons/gemRed.png')}/>

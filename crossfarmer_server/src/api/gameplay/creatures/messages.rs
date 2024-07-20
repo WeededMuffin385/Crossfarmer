@@ -9,11 +9,3 @@ pub struct AttackRequest {
 }
 
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Creature {
-	pub id: usize,
-	pub name: String,
-	pub level: usize,
-	pub health: usize,
-	pub damage: usize,
-}
